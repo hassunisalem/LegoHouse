@@ -3,6 +3,8 @@
     Created on : Aug 22, 2017, 2:33:37 PM
     Author     : kasper
 --%>
+<%@page import="FunctionLayer.Order"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.User"%>
 <% User user = (User) session.getAttribute("user"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -74,6 +76,22 @@
             </tr>
 
         </table>
-
+        <form name="list" 
+       <ul>         
+        <% ArrayList<Order> list = (ArrayList<Order>) session.getAttribute("list"); 
+            if (list!= null)
+            for (Order order : list) {
+        %>   
+          <li> 
+<%  System.out.println(order.toString());  %> 
+    </li>
+        
+   <%  }%>
+   </ul> 
+   <button type="button" onclick="list"> Previous orders  </button>
+    </form>
+   
+            
+            
     </body>
 </html>
